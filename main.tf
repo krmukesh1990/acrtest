@@ -4,7 +4,14 @@
       #source  = "hashicorp/azurerm"
      # version = "=2.46.0"
    # }
-       
+terraform {
+backend "azurerm" {
+        resource_group_name  = "rg-tf-acr"
+        storage_account_name = "mukeshacrstorage"
+        container_name       = "mukeshacrcontainer"
+        key                  = "terraform.tfstate"
+    }
+}    
 
 provider"azurerm"{
 features {}
@@ -14,12 +21,7 @@ resource "azurerm_resource_group" "rg" {
   name     = "rg-tf-acr"
   location = "East US"
 }
- backend "azurerm" {
-        resource_group_name  = "rg-tf-acr"
-        storage_account_name = "mukeshacrstorage"
-        container_name       = "mukeshacrcontainer"
-        key                  = "terraform.tfstate"
-    }
+ 
 
 resource "azurerm_container_registry" "acr" {
   name                     = "mukeshacr777"
