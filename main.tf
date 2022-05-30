@@ -26,6 +26,7 @@ resource "azurerm_container_registry" "acr1" {
 }
 
 output "admin_password" {
+  sensitive = true
   value       = azurerm_container_registry.acr.admin_password
   description = "The object ID of the user"
 }
