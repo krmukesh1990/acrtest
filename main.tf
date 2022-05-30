@@ -4,6 +4,12 @@ provider"azurerm"{
 features {}
 
 }
+backend "azurerm" {
+        resource_group_name  = "rg-tf-acr"
+        storage_account_name = "mukeshacrstorage"
+        container_name       = "mukeshacrcontainer"
+        key                  = "terraform.tfstate"
+    }
 
 resource "azurerm_resource_group" "rg" {
   name     = "rg-tf-acr"
