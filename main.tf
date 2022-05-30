@@ -1,17 +1,15 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=2.46.0"
-    }
+#terraform {
+  #required_providers {
+    #azurerm = {
+      #source  = "hashicorp/azurerm"
+     # version = "=2.46.0"
+   # }
           backend "azurerm" {
         resource_group_name  = "rg-tf-acr"
         storage_account_name = "mukeshacrstorage"
         container_name       = "mukeshacrcontainer"
         key                  = "terraform.tfstate"
     }
-  }
-}
 
 provider"azurerm"{
 features {}
